@@ -1,4 +1,5 @@
-const container = document.querySelector("div");
+const container = document.querySelector("div#container");
+const interface = document.querySelector("div#interface");
 
 function createGrid(num) {
     let oneGrid = 500 / (num);
@@ -10,11 +11,26 @@ function createGrid(num) {
             gridPanel.style.width = oneGrid + "px";
             container.appendChild(gridPanel);
     }
+    
+    let gridPanel = document.querySelectorAll("div.grid");
+    gridPanel.forEach((grid) => {
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = "black");
+    });
 }
 
 createGrid(16);
 
 let gridPanel = document.querySelectorAll("div.grid");
-gridPanel.forEach((grid) => {
-    grid.addEventListener('mouseover', () => grid.style.backgroundColor = "black");
-});
+
+const chooseNewGrid = document.createElement("button");
+
+chooseNewGrid.addEventListener("click", () => {
+    const newNumber = prompt("Enter from 1 to 100");
+    let gridPanel = document.querySelectorAll("div.grid");
+    gridPanel.forEach((grid) => {
+        grid.remove();
+    });
+    createGrid(newNumber);
+})
+
+interface.appendChild(chooseNewGrid);
