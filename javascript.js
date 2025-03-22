@@ -37,10 +37,27 @@ chooseNewGrid.addEventListener("click", () => {
     createGrid(newNumber);
 })
 
+chooseNewGrid.textContent = "New Grid";
 interface.appendChild(chooseNewGrid);
 
 const eraser = document.createElement("button");
+eraser.textContent = "Eraser";
 
 eraser.addEventListener("click", () => {
-
+    gridPanel.forEach((grid) => {
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = "white");
+    });
 })
+
+interface.appendChild(eraser);
+
+const draw = document.createElement("button");
+draw.textContent = "Draw";
+
+draw.addEventListener("click", () => {
+    gridPanel.forEach((grid) => {
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = "black");
+    });
+})
+
+interface.appendChild(draw);
