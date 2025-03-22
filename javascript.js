@@ -13,3 +13,8 @@ function createGrid(num) {
 }
 
 createGrid(16);
+
+let gridPanel = document.querySelectorAll("div.grid");
+gridPanel.forEach((grid) => {
+    grid.addEventListener('mouseover', () => grid.style.backgroundColor = "black");
+});
