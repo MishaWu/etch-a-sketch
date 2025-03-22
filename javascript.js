@@ -15,6 +15,10 @@ function createGrid(num) {
     let gridPanel = document.querySelectorAll("div.grid");
     gridPanel.forEach((grid) => {
         grid.addEventListener('mouseover', () => grid.style.backgroundColor = "black");
+        grid.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            grid.style.backgroundColor = "white";
+        })
     });
 }
 
@@ -34,3 +38,9 @@ chooseNewGrid.addEventListener("click", () => {
 })
 
 interface.appendChild(chooseNewGrid);
+
+const eraser = document.createElement("button");
+
+eraser.addEventListener("click", () => {
+
+})
