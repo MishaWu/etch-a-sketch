@@ -22,8 +22,6 @@ function createGrid(num) {
     });
 }
 
-createGrid(16);
-
 let gridPanel = document.querySelectorAll("div.grid");
 
 const chooseNewGrid = document.createElement("button");
@@ -45,6 +43,7 @@ eraser.textContent = "Eraser";
 
 eraser.addEventListener("click", () => {
     gridPanel.forEach((grid) => {
+        grid.removeEventListener('mouseover', () => grid.style.backgroundColor = "black");
         grid.addEventListener('mouseover', () => grid.style.backgroundColor = "white");
     });
 })
@@ -56,8 +55,11 @@ draw.textContent = "Draw";
 
 draw.addEventListener("click", () => {
     gridPanel.forEach((grid) => {
+        grid.removeEventListener('mouseover', () => grid.style.backgroundColor = "white");
         grid.addEventListener('mouseover', () => grid.style.backgroundColor = "black");
     });
 })
 
 interface.appendChild(draw);
+
+createGrid(16);
