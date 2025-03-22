@@ -63,3 +63,17 @@ draw.addEventListener("click", () => {
 interface.appendChild(draw);
 
 createGrid(16);
+
+const RGB = document.createElement("button");
+RGB.textContent = "RGB";
+
+RGB.addEventListener("click", () => {
+    gridPanel.forEach((grid) => {
+        grid.removeEventListener('mouseover', () => grid.style.backgroundColor = "white");
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = "#" + randomColor);
+    });
+})
+
+interface.appendChild(RGB);
+
