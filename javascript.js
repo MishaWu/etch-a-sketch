@@ -6,7 +6,7 @@ function createGrid(num) {
     for (let i = 1; i <= num * num; i++) {
             const gridPanel = document.createElement("div");
             gridPanel.setAttribute("class", "grid");
-            gridPanel.style.border = "0.5px solid blue";
+            gridPanel.style.border = "0.5px solid black";
             gridPanel.style.height = oneGrid  + "px";
             gridPanel.style.width = oneGrid + "px";
             container.appendChild(gridPanel);
@@ -80,3 +80,18 @@ RGB.addEventListener("click", () => {
 
 interface.appendChild(RGB);
 
+const shadeColor = document.createElement("button");
+shadeColor.textContent = "Shading";
+
+shadeColor.addEventListener("click", () => {
+    let gridPanel = document.querySelectorAll("div.grid");
+    gridPanel.forEach((grid) => {
+        grid.addEventListener('mouseover', () => grid.style.backgroundColor = "black");
+        let opacity = parseFloat(grid.style.opacity);
+        grid.addEventListener('mouseover', () => grid.style.opacity = +grid.style.opacity + 0.1);
+    });
+})
+
+interface.appendChild(shadeColor);
+
+//
