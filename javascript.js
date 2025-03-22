@@ -22,6 +22,8 @@ function createGrid(num) {
     });
 }
 
+createGrid(16);
+
 let gridPanel = document.querySelectorAll("div.grid");
 
 const chooseNewGrid = document.createElement("button");
@@ -42,8 +44,8 @@ const eraser = document.createElement("button");
 eraser.textContent = "Eraser";
 
 eraser.addEventListener("click", () => {
+    let gridPanel = document.querySelectorAll("div.grid");
     gridPanel.forEach((grid) => {
-        grid.removeEventListener('mouseover', () => grid.style.backgroundColor = "black");
         grid.addEventListener('mouseover', () => grid.style.backgroundColor = "white");
     });
 })
@@ -54,22 +56,23 @@ const draw = document.createElement("button");
 draw.textContent = "Draw";
 
 draw.addEventListener("click", () => {
+    let gridPanel = document.querySelectorAll("div.grid");
     gridPanel.forEach((grid) => {
-        grid.removeEventListener('mouseover', () => grid.style.backgroundColor = "white");
         grid.addEventListener('mouseover', () => grid.style.backgroundColor = "black");
     });
+    console.log("huh");
 })
 
 interface.appendChild(draw);
 
-createGrid(16);
+
 
 const RGB = document.createElement("button");
 RGB.textContent = "RGB";
 
 RGB.addEventListener("click", () => {
+    let gridPanel = document.querySelectorAll("div.grid");
     gridPanel.forEach((grid) => {
-        grid.removeEventListener('mouseover', () => grid.style.backgroundColor = "white");
         let randomColor = Math.floor(Math.random()*16777215).toString(16);
         grid.addEventListener('mouseover', () => grid.style.backgroundColor = "#" + randomColor);
     });
